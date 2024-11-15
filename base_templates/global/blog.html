@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ page_name }}</title>
+        <link rel="stylesheet" href="{% static "global/css/style.css" %}">
+    </head>
+    <body>
+        <!-- Cabeçalho da página. -->
+        <header>
+            <!-- Inclui a navbar que está no partials. -->
+            {% include "global/partials/navbar.html" %}
+        </header>
+        <!-- Conteúdo da página. -->
+        <main class="content">
+            {% for post in posts %}
+                <article class="post">
+                    <header>
+                        <h2 class="post__title"><a href="{% url "post" post.id %}" class="post__link">{{ post.title }}</a></h2>
+                    </header>
+                    <div>{{ post.body }}</div>
+                </article>
+            {% endfor %}
+        </main>
+    </body>
+</html>

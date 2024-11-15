@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ post.title }}</title>
+        <link rel="stylesheet" href="{% static "global/css/style.css" %}">
+    </head>
+    <body>
+        <!-- Cabeçalho da página. -->
+        <header>
+            <nav class="navbar">
+                <ul class="navbar__list">
+                    <li class="navbar__item"><a href="{% url "blog" %}" class="navbar__link">Voltar</a></li>
+                </ul>
+            </nav>
+        </header>
+        <!-- Conteúdo da página. -->
+        <main class="content">
+            <article class="post">
+                <header>
+                    <h2 class="post__title">{{ post.title }}</h2>
+                </header>
+                <div>{{ post.body }}</div>
+            </article>
+        </main>
+    </body>
+</html>
